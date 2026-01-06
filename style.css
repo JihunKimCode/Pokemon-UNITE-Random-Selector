@@ -99,10 +99,19 @@ body {
   margin-top: 12px;
 }
 
+.populate{
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 /* Filters */
 .filters {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 8px;
 }
 
@@ -129,8 +138,42 @@ body {
   color: #351061;
 }
 
+/* Tooptip */
+.tooltip {
+  position: absolute;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  border-radius: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 99;
+}
+
+/* Arrow */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.85) transparent transparent transparent;
+}
+
+.tooltip.show {
+  opacity: 1;
+  transform: translate(-50%, -110%);
+}
+
 .controls{
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -278,19 +321,11 @@ body {
   box-shadow: none;
 }
 
-/* .character.disabled:hover{
-  transform: scale(1);
-}
-
-.character.disabled:hover .character-image img {
-  transform: scale(1);
-} */
-
 #footer {
   width: 100%;
   color: #fff;
   text-align: center;
-  padding: 20px 0 10px;
+  padding: 10px 0;
   line-height: 1.5;
 }
 

@@ -216,41 +216,109 @@ volumeIcon.addEventListener('click', () => {
   updateCryVolumeIcon(volumeSlider.value);
 });
 
-/*  SORT & FILTER  */
+/* Tooltip for save/load state */
+function showTooltip(btn, text) {
+  const tip = document.createElement('div');
+  tip.className = 'tooltip';
+  tip.textContent = text;
+
+  document.body.appendChild(tip);
+
+  const rect = btn.getBoundingClientRect();
+  tip.style.left = rect.left + rect.width / 2 + 'px';
+  tip.style.top = rect.top + window.scrollY - 8 + 'px';
+
+  requestAnimationFrame(() => tip.classList.add('show'));
+
+  setTimeout(() => {
+    tip.classList.remove('show');
+    setTimeout(() => tip.remove(), 150);
+  }, 1200);
+}
+
+/* SORT & FILTER */
 const originalCharacters = [...characters]; // keep original order
 let sortedAZ = false;
+
+const STORAGE_KEY = 'pokemon_enabled_state';
 
 document.querySelectorAll('.filters button').forEach(btn => {
   btn.onclick = () => {
     const type = btn.dataset.type;
 
+    /* SAVE STATE */
+    if (type === 'save') {
+      const state = {};
+      characters.forEach(c => state[c.name] = c.enabled);
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      showTooltip(btn, 'State Saved');
+      return;
+    }
+
+    /* LOAD STATE */
+    if (type === 'load') {
+      const raw = localStorage.getItem(STORAGE_KEY);
+
+      if (!raw) {
+        showTooltip(btn, 'No Saved State');
+        return;
+      }
+
+      try {
+        const state = JSON.parse(raw);
+        characters.forEach(c => {
+          if (state.hasOwnProperty(c.name)) {
+            c.enabled = state[c.name];
+          }
+        });
+        renderGrid();
+        showTooltip(btn, 'State Loaded');
+      } catch {
+        showTooltip(btn, 'Load Failed');
+      }
+      return;
+    }
+
+    /* ENABLE ALL */
     if (type === 'enable') {
-      // Enable All Characters
       characters.forEach(c => c.enabled = true);
       document.querySelectorAll('.filters button').forEach(b => {
-        if (!['enable','disable','sort'].includes(b.dataset.type)) b.classList.add('active');
+        if (!['enable','disable','sort','save','load'].includes(b.dataset.type)) {
+          b.classList.add('active');
+        }
       });
-    } else if (type === 'disable') {
-      // Disable All Characters
+    }
+
+    /* DISABLE ALL */
+    else if (type === 'disable') {
       characters.forEach(c => c.enabled = false);
       document.querySelectorAll('.filters button').forEach(b => {
-        if (!['enable','disable','sort'].includes(b.dataset.type)) b.classList.remove('active');
+        if (!['enable','disable','sort','save','load'].includes(b.dataset.type)) {
+          b.classList.remove('active');
+        }
       });
-    } else if (type === 'sort') {
-      // Sort Characters
+    }
+
+    /* SORT */
+    else if (type === 'sort') {
       if (!sortedAZ) {
-        characters.sort((a,b) => a.name.localeCompare(b.name));
+        characters.sort((a, b) => a.name.localeCompare(b.name));
         btn.textContent = 'Sort by Release';
       } else {
         characters.splice(0, characters.length, ...originalCharacters);
         btn.textContent = 'Sort A-Z';
       }
       sortedAZ = !sortedAZ;
-    } else {
-      // Type buttons toggle
+    }
+
+    /* TYPE FILTERS */
+    else {
       const isActive = btn.classList.contains('active');
       characters.forEach(c => {
-        if (c.type === type) c.enabled = !isActive;
+        if (c.type === type) {
+          c.enabled = !isActive;
+        }
       });
       btn.classList.toggle('active');
     }
