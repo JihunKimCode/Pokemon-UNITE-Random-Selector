@@ -18,6 +18,9 @@ const grid = document.getElementById('grid');
 const spotlight = document.getElementById('spotlight');
 const stageImg = document.getElementById('stage-img');
 const stageName = document.getElementById('stage-name');
+const volumeSlider = document.getElementById("volume-slider");
+const volumeIcon = document.getElementById("volume-icon");
+const volumeLabel = document.getElementById("volume-label");
 
 /* Preload all images and store in cache */
 const imageCache = {};  // { 'charName': { roster: Image, stat: Image, cry: Audio } }
@@ -136,16 +139,16 @@ function randomPickSlotMachine() {
     if (current < iterations) {
       setTimeout(roll, delay);
     } else {
-      // Select Effect
+      // Final Effect
       stageImg.style.transition = 'transform 0.2s';
       stageImg.style.transform = 'scale(1.1)';
       setTimeout(() => stageImg.style.transform = 'scale(1)', 300);
 
-      // Play cry
+      // Cry with current slider volume
       const cry = imageCache[finalPick.name]?.cry;
       if (cry) {
         cry.currentTime = 0;
-        cry.volume = 1;
+        cry.volume = volumeSlider.value; // use slider-controlled volume
         cry.play().catch(() => {});
       }
     }
@@ -153,6 +156,65 @@ function randomPickSlotMachine() {
 
   roll();
 }
+
+let cryLastVolume = 1;
+
+// Update icon based on volume
+function updateCryVolumeIcon(volume) {
+  volumeIcon.classList.remove(
+    'fa-volume-high',
+    'fa-volume-low',
+    'fa-volume-off',
+    'fa-volume-xmark'
+  );
+
+  if (volume === 0) {
+    volumeIcon.classList.add('fa-volume-xmark');
+  } else if (volume <= 0.3) {
+    volumeIcon.classList.add('fa-volume-off');
+  } else if (volume <= 0.8) {
+    volumeIcon.classList.add('fa-volume-low');
+  } else {
+    volumeIcon.classList.add('fa-volume-high');
+  }
+}
+
+// Adjust volume of a single cry
+function setCryVolume(cry, volume) {
+  if (cry) cry.volume = volume;
+}
+
+// Slider input event
+volumeSlider.oninput = () => {
+  const vol = parseFloat(volumeSlider.value); // 0 to 1
+  cryLastVolume = vol;
+  volumeLabel.textContent = `${Math.round(vol * 100)}%`;
+
+  // Update icon
+  updateCryVolumeIcon(vol);
+};
+
+// Click icon to mute/unmute
+volumeIcon.style.cursor = 'pointer';
+volumeIcon.addEventListener('click', () => {
+  if (volumeSlider.value > 0) {
+    cryLastVolume = volumeSlider.value;
+    // Mute all cries
+    for (const key in imageCache) {
+      setCryVolume(imageCache[key]?.cry, 0);
+    }
+    volumeSlider.value = 0;
+    volumeLabel.textContent = '0%';
+  } else {
+    // Restore previous volume
+    for (const key in imageCache) {
+      setCryVolume(imageCache[key]?.cry, 0.5); // default 50%
+    }
+    volumeSlider.value = cryLastVolume;
+    volumeLabel.textContent = cryLastVolume*100+'%';
+  }
+  updateCryVolumeIcon(volumeSlider.value);
+});
 
 /*  SORT & FILTER  */
 const originalCharacters = [...characters]; // keep original order

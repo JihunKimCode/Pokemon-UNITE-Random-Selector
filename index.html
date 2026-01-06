@@ -5,6 +5,7 @@
   <title>Pokémon UNITE Random Selector</title>
   <link rel="icon" type="image/png" href="https://unite.pokemon.com/images/pokemon/cramorant/stat/stat-cramorant.png">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    
 </head>
 <body>
@@ -23,7 +24,14 @@
 
         <!-- Filters -->
         <div class="buttons">
-            <button id="random-btn">🎲 Pick a Pokémon</button>
+            <div class="controls">
+                <div class="volume-control">
+                    <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+                    <span id="volume-label">100%</span>
+                </div>
+                <button id="random-btn">🎲 Pick a Pokémon</button>
+            </div>
             <div class="filters">
                 <button data-type="enable">Enable All</button>
                 <button data-type="disable">Disable All</button>
@@ -32,7 +40,7 @@
                 <button data-type="speedster" class="active">Speedster</button>
                 <button data-type="supporter" class="active">Supporter</button>
                 <button data-type="all-rounder" class="active">All-Rounder</button>
-                <button data-type="sort"><i class="fa-solid fa-sort"></i>Sort A-Z</button>
+                <button data-type="sort">Sort A-Z</button>
             </div>
         </div>
 
