@@ -15,6 +15,7 @@ A simple tool to randomly choose a Pokémon from Pokémon UNITE.
    - Click **Load State** to restore them later.
 
 ## Important
-* All images and data are sourced from the [Pokémon UNITE Official Website](https://unite.pokemon.com/en-us/).
-* Sounds are sourced from the [PokéAPI](https://pokeapi.co/).
-* Available Pokémons are kept up to date based on the official Pokémon UNITE listings.
+* All images and data are sourced from the [official Pokémon UNITE website](https://unite.pokemon.com/en-us/) and publicly available information compiled on [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).  
+* Sounds are sourced from the [PokéAPI](https://pokeapi.co/).  
+* Pokémon and all related assets are © their respective owners (Nintendo / Creatures Inc. / GAME FREAK / Tencent). All rights reserved.  
+* This is an unofficial fan project and is not affiliated with, endorsed by, or associated with any of the companies listed above.
