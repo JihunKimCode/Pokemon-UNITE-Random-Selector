@@ -45,7 +45,7 @@ function getPokeApiName(uniteName) {
   return POKEAPI_NAME_MAP[uniteName] || uniteName;
 }
 
-// Some exceptions for images
+/* Exceptions to default image sources */
 const IMAGE_SRC_EXCEPTIONS = {
   "mega-mewtwo-x": {
     roster: "https://unite.pokemon.com/images/pokemon/mewtwo/roster/roster-mewtwo.png",
