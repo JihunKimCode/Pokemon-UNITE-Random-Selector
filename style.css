@@ -79,8 +79,8 @@ body {
 
 #stage-img {
   position: relative;
-  width: 270px;
-  height: auto;
+  width: auto;
+  height: 270px;
   z-index: 1;
 }
 
@@ -292,10 +292,16 @@ body {
 .character-image img {
   width: 100%;
   height: auto;
-  /* aspect-ratio: 1 / 1; */
+  /* aspect-ratio: 1 / 1.155; */
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 0.2s ease;
+}
+
+.character-image img.crop {
+  object-fit: cover;
+  object-position: center 0%;
 }
 
 .character:hover .character-image img {
