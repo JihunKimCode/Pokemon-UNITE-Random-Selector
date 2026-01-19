@@ -127,7 +127,7 @@ function renderGrid() {
     grid.appendChild(div);
   });
 
-  syncTypeButtons();   // 👈 NEW
+  syncTypeButtons();
 }
 
 /*  RANDOM PICK SLOT MACHINE  */
