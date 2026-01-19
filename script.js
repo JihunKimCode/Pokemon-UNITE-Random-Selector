@@ -82,6 +82,23 @@ async function preloadImages() {
   await Promise.allSettled(cryPromises);
 }
 
+/*  SYNC ROLE BUTTONS  */
+function syncTypeButtons() {
+  const buttons = document.querySelectorAll('.filters button');
+
+  buttons.forEach(btn => {
+    const type = btn.dataset.type;
+    if (!TYPE_COLOR[type]) return; // Skip non-role buttons
+
+    const typeChars = characters.filter(c => c.type === type);
+    if (!typeChars.length) return;
+
+    const hasEnabled = typeChars.some(c => c.enabled);
+
+    btn.classList.toggle('active', hasEnabled);
+  });
+}
+
 /*  RENDER GRID  */
 function renderGrid() {
   grid.innerHTML = '';
@@ -93,7 +110,6 @@ function renderGrid() {
     div.className = `character ${c.type}` + (c.enabled ? '' : ' disabled');
     div.style.background = "#19072d";
 
-    // Safe roster access
     const rosterSrc = imageCache[c.name]?.roster?.src || '';
 
     div.innerHTML = `
@@ -110,6 +126,8 @@ function renderGrid() {
 
     grid.appendChild(div);
   });
+
+  syncTypeButtons();   // 👈 NEW
 }
 
 /*  RANDOM PICK SLOT MACHINE  */
@@ -273,6 +291,7 @@ document.querySelectorAll('.filters button').forEach(btn => {
           }
         });
         renderGrid();
+        syncTypeButtons();
         showTooltip(btn, 'State Loaded');
       } catch {
         showTooltip(btn, 'Load Failed');
