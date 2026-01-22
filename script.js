@@ -18,6 +18,9 @@ const grid = document.getElementById('grid');
 const spotlight = document.getElementById('spotlight');
 const stageImg = document.getElementById('stage-img');
 const stageName = document.getElementById('stage-name');
+const items = document.getElementById('items');
+const heldItemEls = document.querySelectorAll('.held-items');
+const battleItemEl = document.querySelector('.battle-items');
 const volumeSlider = document.getElementById("volume-slider");
 const volumeIcon = document.getElementById("volume-icon");
 const volumeLabel = document.getElementById("volume-label");
@@ -177,7 +180,36 @@ function renderGrid() {
   syncTypeButtons();
 }
 
-/*  RANDOM PICK SLOT MACHINE  */
+function pickUniqueItems(pool, count) {
+  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}
+
+function revealItems(finalPokemonName) {
+  if (getComputedStyle(items).display === "none") {
+    items.style.display = "flex";
+  }
+
+  const pokemonKey = finalPokemonName.toLowerCase().replace(/ /g, '-');
+  const fixedItem = FIXED_FIRST_HELD_ITEM[pokemonKey];
+
+  let pool = HELD_ITEMS;
+  if (fixedItem) pool = HELD_ITEMS.filter(i => i.name !== fixedItem.name);
+
+  const picked = pickUniqueItems(pool, fixedItem ? 2 : 3);
+  const finalHeld = fixedItem ? [fixedItem, ...picked] : picked;
+
+  heldItemEls.forEach((el, i) => {
+    el.src = finalHeld[i].src;
+    el.alt = finalHeld[i].name;
+  });
+
+  // Final battle item
+  const finalBattle = BATTLE_ITEMS[Math.floor(Math.random() * BATTLE_ITEMS.length)];
+  battleItemEl.src = finalBattle.src;
+  battleItemEl.alt = finalBattle.name;
+}
+
 function randomPickSlotMachine() {
   const pool = characters.filter(c => c.enabled && activeTypes.has(c.type));
   if (!pool.length) return alert('No characters available');
@@ -216,6 +248,9 @@ function randomPickSlotMachine() {
         cry.volume = volumeSlider.value; // use slider-controlled volume
         cry.play().catch(() => {});
       }
+
+      // Randomly pick items AFTER Pokémon select
+      revealItems(finalPick.name);
     }
   }
 
