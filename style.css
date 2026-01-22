@@ -91,7 +91,7 @@ body {
   margin: 20px 0 0 0;
 }
 
-#items{
+#items {
   display: none;
   align-items: center;
   flex-direction: row;
@@ -99,18 +99,25 @@ body {
   gap: 10px;
 }
 
-.held-items{
+.held-items {
+  display: block;
   background-color: #fff;
   border: 1px solid #351061;
   border-radius: 50%;
+  
+  /* Fixed container size */
+  width: 36px;
+  height: 36px;
+  padding: 2px;
 
-  width: 40px;
-  height: 40px;
+  /* Maintain image aspect ratio */
+  object-fit: contain;
 }
 
 .battle-items{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .buttons{
