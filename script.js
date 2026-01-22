@@ -154,7 +154,14 @@ function renderGrid() {
   grid.innerHTML = '';
 
   characters.forEach(c => {
-    if (!activeTypes.has(c.type)) return;
+    // ---------- TYPE FILTER ----------
+    // if (!activeTypes.has(c.type)) return;
+
+    // ---------- RANGE FILTER ----------
+    if (activeRange !== 'all' && c.range !== activeRange) return;
+
+    // ---------- DAMAGE TYPE FILTER ----------
+    if (activeAttackType !== 'all' && c.attackType !== activeAttackType) return;
 
     const div = document.createElement('div');
     div.className = `character ${c.type}` + (c.enabled ? '' : ' disabled');
@@ -185,6 +192,7 @@ function pickUniqueItems(pool, count) {
   return shuffled.slice(0, count);
 }
 
+// Randomly selected items
 function revealItems(finalPokemonName) {
   if (getComputedStyle(items).display === "none") {
     items.style.display = "flex";
@@ -210,8 +218,15 @@ function revealItems(finalPokemonName) {
   battleItemEl.alt = finalBattle.name;
 }
 
+// Randomly selected pokemons
 function randomPickSlotMachine() {
-  const pool = characters.filter(c => c.enabled && activeTypes.has(c.type));
+  const pool = characters.filter(c => 
+    c.enabled &&
+    activeTypes.has(c.type) &&
+    (activeRange === 'all' || c.range === activeRange) &&
+    (activeAttackType === 'all' || c.attackType === activeAttackType)
+  );
+
   if (!pool.length) return alert('No characters available');
 
   let iterations = 20;
@@ -245,7 +260,7 @@ function randomPickSlotMachine() {
       const cry = imageCache[finalPick.name]?.cry;
       if (cry) {
         cry.currentTime = 0;
-        cry.volume = volumeSlider.value; // use slider-controlled volume
+        cry.volume = volumeSlider.value;
         cry.play().catch(() => {});
       }
 
@@ -337,6 +352,15 @@ function showTooltip(btn, text) {
 }
 
 /* SORT & FILTER */
+const rangeOptions = ['all', 'melee', 'ranged'];
+const attackOptions = ['all', 'physical', 'special'];
+
+let activeRange = 'all';
+let activeAttackType = 'all';
+
+const rangeBtn = document.getElementById('range-btn');
+const attackBtn = document.getElementById('attack-btn');
+
 const originalCharacters = [...characters]; // keep original order
 let sortedAZ = false;
 
@@ -346,11 +370,30 @@ document.querySelectorAll('.filters button').forEach(btn => {
   btn.onclick = () => {
     const type = btn.dataset.type;
 
+    // TOGGLE RANGE
+    if (btn.id === 'range-btn') {
+      const currentIndex = rangeOptions.indexOf(activeRange);
+      activeRange = rangeOptions[(currentIndex + 1) % rangeOptions.length];
+      btn.dataset.range = activeRange;
+      btn.textContent = `Range: ${activeRange.charAt(0).toUpperCase() + activeRange.slice(1)}`;
+      renderGrid();
+      return;
+    }
+
+    // TOGGLE ATTACK TYPE
+    if (btn.id === 'attack-btn') {
+      const currentIndex = attackOptions.indexOf(activeAttackType);
+      activeAttackType = attackOptions[(currentIndex + 1) % attackOptions.length];
+      btn.dataset.attack = activeAttackType;
+      btn.textContent = `Type: ${activeAttackType.charAt(0).toUpperCase() + activeAttackType.slice(1)}`;
+      renderGrid();
+      return;
+    }
+
     /* SAVE STATE */
     if (type === 'save') {
       const state = {};
       characters.forEach(c => state[c.name] = c.enabled);
-
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       showTooltip(btn, 'State Saved');
       return;
@@ -368,9 +411,7 @@ document.querySelectorAll('.filters button').forEach(btn => {
       try {
         const state = JSON.parse(raw);
         characters.forEach(c => {
-          if (state.hasOwnProperty(c.name)) {
-            c.enabled = state[c.name];
-          }
+          if (state.hasOwnProperty(c.name)) c.enabled = state[c.name];
         });
         renderGrid();
         syncTypeButtons();
@@ -385,7 +426,7 @@ document.querySelectorAll('.filters button').forEach(btn => {
     if (type === 'enable') {
       characters.forEach(c => c.enabled = true);
       document.querySelectorAll('.filters button').forEach(b => {
-        if (!['enable','disable','sort','save','load'].includes(b.dataset.type)) {
+        if (!['enable','disable','sort','save','load'].includes(b.dataset.type) && !['range-btn','attack-btn'].includes(b.id)) {
           b.classList.add('active');
         }
       });
@@ -395,7 +436,7 @@ document.querySelectorAll('.filters button').forEach(btn => {
     else if (type === 'disable') {
       characters.forEach(c => c.enabled = false);
       document.querySelectorAll('.filters button').forEach(b => {
-        if (!['enable','disable','sort','save','load'].includes(b.dataset.type)) {
+        if (!['enable','disable','sort','save','load'].includes(b.dataset.type) && !['range-btn','attack-btn'].includes(b.id)) {
           b.classList.remove('active');
         }
       });
@@ -413,13 +454,11 @@ document.querySelectorAll('.filters button').forEach(btn => {
       sortedAZ = !sortedAZ;
     }
 
-    /* TYPE FILTERS */
-    else {
+    /* TYPE FILTERS (attacker/defender/etc) */
+    else if (['attacker','defender','speedster','supporter','all-rounder'].includes(type)) {
       const isActive = btn.classList.contains('active');
       characters.forEach(c => {
-        if (c.type === type) {
-          c.enabled = !isActive;
-        }
+        if (c.type === type) c.enabled = !isActive;
       });
       btn.classList.toggle('active');
     }
