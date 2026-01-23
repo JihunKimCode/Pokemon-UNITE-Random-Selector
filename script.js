@@ -149,6 +149,17 @@ function syncTypeButtons() {
   });
 }
 
+function processPokemonName(name){
+  const lower = name.toLowerCase();
+
+  // explicit exceptions
+  if (lower === "ho-oh") return "HO-OH";
+  if (lower === "mr-mime") return "MR. MIME";
+
+  // default behavior
+  return lower.toUpperCase().replace(/[- ]/g, ' ');
+}
+
 /*  RENDER GRID  */
 function renderGrid() {
   grid.innerHTML = '';
@@ -173,7 +184,7 @@ function renderGrid() {
       <div class="character-image">
           <img src="${rosterSrc}" alt="${c.name}">
       </div>
-      <div class="character-name">${c.name.toUpperCase().replace(/-/g, ' ')}</div>
+      <div class="character-name">${processPokemonName(c.name)}</div>
     `;
 
     div.onclick = () => {
@@ -187,6 +198,7 @@ function renderGrid() {
   syncTypeButtons();
 }
 
+// Helper functions for revealItemsAndSkills
 function pickUniqueItems(pool, count) {
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, count);
@@ -200,16 +212,25 @@ function attachTooltip(el, text) {
   el.onmouseenter = () => showTooltip(el, text);
 }
 
+function getPokemonNameKey(name) {
+  const lower = name.toLowerCase();
+
+  // explicit exceptions
+  if (lower === "ho-oh") return "ho-oh";
+  if (lower === "mr-mime") return "mr.mime";
+
+  // default behavior
+  return lower.replace(/[- ]/g, '');
+}
+
 // Randomly selected items + skills
 function revealItemsAndSkills(finalPokemonName) {
   if (getComputedStyle(items).display === "none") {
     items.style.display = "flex";
   }
 
-  const pokemonKey = finalPokemonName.toLowerCase().replace(/ /g, '-');
-
   /* ===== HELD ITEMS ===== */
-  const fixedItem = FIXED_FIRST_HELD_ITEM[pokemonKey];
+  const fixedItem = FIXED_FIRST_HELD_ITEM[finalPokemonName];
 
   let pool = HELD_ITEMS;
   if (fixedItem) pool = HELD_ITEMS.filter(i => i.name !== fixedItem.name);
@@ -235,6 +256,7 @@ function revealItemsAndSkills(finalPokemonName) {
     p => p.name.toLowerCase() === finalPokemonName.toLowerCase()
   );
   if (!pokemon) return;
+  const pokemonNameKey = getPokemonNameKey(finalPokemonName);
 
   const skill1Pool = pokemon.skill1.split(',').map(s => s.trim());
   const skill2Pool = pokemon.skill2.split(',').map(s => s.trim());
@@ -245,9 +267,8 @@ function revealItemsAndSkills(finalPokemonName) {
   const skill1El = document.querySelector('.skill1');
   const skill2El = document.querySelector('.skill2');
 
-  const pokemonNameKey = pokemon.name.toLowerCase().replace(/[- ]/g, '');
-  const skill1Key = pickedSkill1.toLowerCase().replace(/[- ]/g, '');
-  const skill2Key = pickedSkill2.toLowerCase().replace(/[- ]/g, '');
+  const skill1Key = pickedSkill1.toLowerCase().replace(/[ ]/g, '');
+  const skill2Key = pickedSkill2.toLowerCase().replace(/[ ]/g, '');
 
   skill1El.src = `https://www.serebii.net/pokemonunite/moves/${pokemonNameKey}${skill1Key}.png`;
   skill1El.alt = pickedSkill1;
@@ -279,7 +300,7 @@ function randomPickSlotMachine() {
     finalPick = pick;
 
     stageImg.src = imageCache[pick.name]?.stat?.src || '';
-    stageName.textContent = pick.name.toUpperCase().replace(/-/g, ' ');
+    stageName.textContent = processPokemonName(pick.name);
     spotlight.style.background = TYPE_COLOR[pick.type];
 
     stageImg.style.transition = '';
