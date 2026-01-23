@@ -192,13 +192,23 @@ function pickUniqueItems(pool, count) {
   return shuffled.slice(0, count);
 }
 
-// Randomly selected items
-function revealItems(finalPokemonName) {
+function pickRandomSkills(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function attachTooltip(el, text) {
+  el.onmouseenter = () => showTooltip(el, text);
+}
+
+// Randomly selected items + skills
+function revealItemsAndSkills(finalPokemonName) {
   if (getComputedStyle(items).display === "none") {
     items.style.display = "flex";
   }
 
   const pokemonKey = finalPokemonName.toLowerCase().replace(/ /g, '-');
+
+  /* ===== HELD ITEMS ===== */
   const fixedItem = FIXED_FIRST_HELD_ITEM[pokemonKey];
 
   let pool = HELD_ITEMS;
@@ -210,12 +220,42 @@ function revealItems(finalPokemonName) {
   heldItemEls.forEach((el, i) => {
     el.src = finalHeld[i].src;
     el.alt = finalHeld[i].name;
+
+    attachTooltip(el, finalHeld[i].name);
   });
 
-  // Final battle item
   const finalBattle = BATTLE_ITEMS[Math.floor(Math.random() * BATTLE_ITEMS.length)];
   battleItemEl.src = finalBattle.src;
   battleItemEl.alt = finalBattle.name;
+
+  attachTooltip(battleItemEl, finalBattle.name);
+
+  /* ===== SKILLS ===== */
+  const pokemon = skills.find(
+    p => p.name.toLowerCase() === finalPokemonName.toLowerCase()
+  );
+  if (!pokemon) return;
+
+  const skill1Pool = pokemon.skill1.split(',').map(s => s.trim());
+  const skill2Pool = pokemon.skill2.split(',').map(s => s.trim());
+
+  const pickedSkill1 = pickRandomSkills(skill1Pool);
+  const pickedSkill2 = pickRandomSkills(skill2Pool);
+
+  const skill1El = document.querySelector('.skill1');
+  const skill2El = document.querySelector('.skill2');
+
+  const pokemonNameKey = pokemon.name.toLowerCase().replace(/[- ]/g, '');
+  const skill1Key = pickedSkill1.toLowerCase().replace(/[- ]/g, '');
+  const skill2Key = pickedSkill2.toLowerCase().replace(/[- ]/g, '');
+
+  skill1El.src = `https://www.serebii.net/pokemonunite/moves/${pokemonNameKey}${skill1Key}.png`;
+  skill1El.alt = pickedSkill1;
+  attachTooltip(skill1El, pickedSkill1);
+
+  skill2El.src = `https://www.serebii.net/pokemonunite/moves/${pokemonNameKey}${skill2Key}.png`;
+  skill2El.alt = pickedSkill2;
+  attachTooltip(skill2El, pickedSkill2);
 }
 
 // Randomly selected pokemons
@@ -265,7 +305,7 @@ function randomPickSlotMachine() {
       }
 
       // Randomly pick items AFTER Pokémon select
-      revealItems(finalPick.name);
+      revealItemsAndSkills(finalPick.name);
     }
   }
 

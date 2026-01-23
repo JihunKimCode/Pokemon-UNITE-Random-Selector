@@ -3,14 +3,14 @@ A simple tool to randomly choose a Pokémon from Pokémon UNITE.
 
 * **Random Pick Display**
    - The selected Pokémon will appear in the **stage section** with its image.
-   - **Held items** (up to 3) and **battle item** will appear below the Pokémon image.
+   - **Held items**, **battle item**, and **skills** will appear below the Pokémon image.
    - The **spotlight** color changes according to the Pokémon’s role/type.
 
 ## How to Use
 1. **Pick a Pokémon**
    - Click **“Pick a Pokémon”** to randomly select a Pokémon from the current pool.
    - Use the **Volume Panel** to control the Pokémon's cry.
-   - The Pokémon’s randomly selected **held items** and **battle item** will be displayed after selection.
+   - The Pokémon’s randomly selected **held items**, **battle item**, and **skills** will be displayed after selection.
 
 2. **Sorting**
    - Sort Pokémon **A–Z** or by **release date** using the **Sort** button.
