@@ -1,11 +1,11 @@
 const skills = [
   {"name": "meowth","skill1": "Pay Day, Fury Swipes","skill2": "Feint Attack, Assurance"},
   {"name": "mega-charizard-y","skill1": "Flamethrower","skill2": "Fire Blast"},
-  {"name": "mega-gyarados","skill1": "Dragon Breath, Splash","skill2": "Waterfall, Dragon Current"},
+  {"name": "mega-gyarados","skill1": "Dragon Breath","skill2": "Waterfall"},
   {"name": "vaporeon","skill1": "Hydro Pump, Muddy Water","skill2": "Aqua Ring, Flip Turn"},
   {"name": "dhelmise","skill1": "Power Whip, Whirlpool","skill2": "Anchor Shot, Heavy Slam"},
   {"name": "mega-charizard-x","skill1": "Fire Punch","skill2": "Flare Blitz"},
-  {"name": "mega-lucario","skill1": "Power-Up Punch, Meteor Mash","skill2": "Close Combat, Aura Cannon"},
+  {"name": "mega-lucario","skill1": "Power-Up Punch","skill2": "Close Combat"},
   {"name": "empoleon","skill1": "Hydro Cannon, Whirlpool","skill2": "Metal Claw, Aqua Jet"},
   {"name": "pawmot","skill1": "Thunder Punch, Supercell Slam","skill2": "Volt Switch, Mach Punch"},
   {"name": "latias","skill1": "Mist Ball, Dragon Cheer","skill2": "Dragon Pulse, Dragon Breath"},
