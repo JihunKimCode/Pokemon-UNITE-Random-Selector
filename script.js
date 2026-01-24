@@ -60,23 +60,23 @@ const IMAGE_SRC_EXCEPTIONS = {
   },
   "mega-lucario": {
     roster: "https://i.namu.wiki/i/GR9v8nme9U5IUWZ4PlN3UoM7DaqqXgXZ6Cc7DwbWhyKQ1LsrwgRsoy0jBH9hYz9JtxKShTBcUI13syjiRYZqOYIeSCKvMOojjkNfMEkRzRfLH-vxCimAiSNn3yAAF18rcaUnwcuJkEagRC3pyJ0otQ.webp",
-    stat:   "https://archives.bulbagarden.net/media/upload/thumb/7/76/UNITE_Mega_Lucario.png/367px-UNITE_Mega_Lucario.png"
+    stat:   "https://i.namu.wiki/i/OxbrIOZR8_5Uj5VM8DnZ7Ia0t2-9z6nceglzP4q9VsGgLgv7R80CAQNe2wvsC-CSSVMmidl0Ds4kph6OnCK9O7qGIyhumhnwjez-HIk6G3nEmTeCgUOYSfDB0u0GcRUQlL10QdCq36qlzAZjaAWi8A.webp"
   },
   "mega-charizard-x": {
     roster: "https://i.namu.wiki/i/nccIKHxnGOmjng1cDhKSJ0TT_Cxcz4EqqX9luRC9Ff34MFHTcXh_3fCAk_xi9zIue_iOvLJx66_FJFfueTtY4Dv0PAWAQQFRkgkwZtVOV5kokUyH9sYi3NCd4D65Jh0SQQfQhgm8Ep94lK8Gdv3e2w.webp",
-    stat:   "https://archives.bulbagarden.net/media/upload/2/25/UNITE_Mega_Charizard_X.png"
+    stat:   "https://i.namu.wiki/i/fEqeNr3De-690DltDV0e7U1tE2-tV8bQJO0So7n1k3BGAEg1ukEsXhwvAVLo7FDGE7qXPfzUHIopF0YiMHmKeqKcLmzHssLs8eAHs7Y9FkDx4wxjrEgLGAxkkhp7oKI2nkWCybsjhAkbAEEijvzrRQ.webp"
   },
   "mega-charizard-y": {
     roster: "https://i.namu.wiki/i/07b4JJjioy12TfBCb6Qm8x1rNNTTasz9KuRbHZsgB1qh0Tg7jZWlBLg4RllnYhndiJUcSjxLnW9FpjTZSmsSjpg110ncJocg9fOFtBrq054Zbmx8YXY_SPIcXYrVT7_k3419abN88oxAFV-JApVGXQ.webp",
-    stat:   "https://archives.bulbagarden.net/media/upload/9/97/UNITE_Mega_Charizard_Y.png"
+    stat:   "https://i.namu.wiki/i/zCYouSP90IM5-F8eEOFRNRZQNnVOGNsvDetQ46uBfxezkGRGX-UMSWIu3h99rZ8u2Rn5Rh1GMhcrmvukWkZBeeXrtA-P0OSp3JCROVrZaukEkm88DaH29vEL0AvYeOwAq5OpOy-1MfbEC-Cm1wepBg.webp"
   },
   "mega-gyarados": {
     roster: "https://i.namu.wiki/i/Qx5vtOSNVyScOOnkcvVXMBVTVp7V3LJL1xU_492dEkJBPDI6t6oNUBgP8dTI-FLbzLjOrL__CgnkW0sXZB7mc0Emzb7hKbtrA85C9ufSoA-5S6PmXMg4nznmJDABylYDr5zOtwNM7MfCROSTz03DZA.webp",
-    stat:   "https://archives.bulbagarden.net/media/upload/0/01/UNITE_Mega_Gyarados.png"
+    stat:   "https://i.namu.wiki/i/vKp0pWr8xysmadax2jQFhWRFWWr-DIjuuF9jwHAflOiHLnqIpwJUVwc8rl7ZTTrn9jwutbJtguQjgWFwiheZ6O6zeQPKEocprgZqq31P0kN-_0MxHkYr7ePSN6YEWxWTfaSkWjTL23nnBR8nANf3Gg.webp"
   },
   "meowth": { // Check official webpage later
-    roster: "https://archives.bulbagarden.net/media/upload/0/08/UNITE_Meowth.png",  // update this later
-    stat: "https://archives.bulbagarden.net/media/upload/0/08/UNITE_Meowth.png"
+    roster: "https://i.namu.wiki/i/Ev64_H7Y1KeT7Ke5TDg30J3TZtQl1foXTSFE3qdRuTm6E8YIS0jxP4hxTcWhbDLDDmgt_Log_Ehwi_oHeNf1pWkoPmGoJ5hHFneEwM5wKbwmLaV4dp_cJgpOJl7R4ss40x5dDEJzeaXvPvAe0A4jsQ.webp",
+    stat: "https://i.namu.wiki/i/Ev64_H7Y1KeT7Ke5TDg30J3TZtQl1foXTSFE3qdRuTm6E8YIS0jxP4hxTcWhbDLDDmgt_Log_Ehwi_oHeNf1pWkoPmGoJ5hHFneEwM5wKbwmLaV4dp_cJgpOJl7R4ss40x5dDEJzeaXvPvAe0A4jsQ.webp"
   }
 };
 
