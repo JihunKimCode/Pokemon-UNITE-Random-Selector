@@ -321,9 +321,9 @@ body {
 .character-image img {
   width: 100%;
   height: auto;
-  /* aspect-ratio: 1 / 1.155; */
+  aspect-ratio: 1 / 1.155;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
   display: block;
   transition: transform 0.2s ease;
 }

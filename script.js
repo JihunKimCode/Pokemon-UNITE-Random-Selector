@@ -59,19 +59,19 @@ const IMAGE_SRC_EXCEPTIONS = {
     stat:   "https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png"
   },
   "mega-lucario": {
-    roster: "https://i.namu.wiki/i/GR9v8nme9U5IUWZ4PlN3UoM7DaqqXgXZ6Cc7DwbWhyKQ1LsrwgRsoy0jBH9hYz9JtxKShTBcUI13syjiRYZqOYIeSCKvMOojjkNfMEkRzRfLH-vxCimAiSNn3yAAF18rcaUnwcuJkEagRC3pyJ0otQ.webp",
+    roster: "https://archives.bulbagarden.net/media/upload/thumb/7/76/UNITE_Mega_Lucario.png/367px-UNITE_Mega_Lucario.png",
     stat:   "https://archives.bulbagarden.net/media/upload/thumb/7/76/UNITE_Mega_Lucario.png/367px-UNITE_Mega_Lucario.png"
   },
   "mega-charizard-x": {
-    roster: "https://i.namu.wiki/i/nccIKHxnGOmjng1cDhKSJ0TT_Cxcz4EqqX9luRC9Ff34MFHTcXh_3fCAk_xi9zIue_iOvLJx66_FJFfueTtY4Dv0PAWAQQFRkgkwZtVOV5kokUyH9sYi3NCd4D65Jh0SQQfQhgm8Ep94lK8Gdv3e2w.webp",
+    roster: "https://archives.bulbagarden.net/media/upload/2/25/UNITE_Mega_Charizard_X.png",
     stat:   "https://archives.bulbagarden.net/media/upload/2/25/UNITE_Mega_Charizard_X.png"
   },
   "mega-charizard-y": {
-    roster: "https://i.namu.wiki/i/07b4JJjioy12TfBCb6Qm8x1rNNTTasz9KuRbHZsgB1qh0Tg7jZWlBLg4RllnYhndiJUcSjxLnW9FpjTZSmsSjpg110ncJocg9fOFtBrq054Zbmx8YXY_SPIcXYrVT7_k3419abN88oxAFV-JApVGXQ.webp",
+    roster: "https://archives.bulbagarden.net/media/upload/9/97/UNITE_Mega_Charizard_Y.png",
     stat:   "https://archives.bulbagarden.net/media/upload/9/97/UNITE_Mega_Charizard_Y.png"
   },
   "mega-gyarados": {
-    roster: "https://i.namu.wiki/i/Qx5vtOSNVyScOOnkcvVXMBVTVp7V3LJL1xU_492dEkJBPDI6t6oNUBgP8dTI-FLbzLjOrL__CgnkW0sXZB7mc0Emzb7hKbtrA85C9ufSoA-5S6PmXMg4nznmJDABylYDr5zOtwNM7MfCROSTz03DZA.webp",
+    roster: "https://archives.bulbagarden.net/media/upload/0/01/UNITE_Mega_Gyarados.png",
     stat:   "https://archives.bulbagarden.net/media/upload/0/01/UNITE_Mega_Gyarados.png"
   },
   "meowth": { // Check official webpage later
