@@ -27,7 +27,7 @@ const skills = [
   {"name": "meowscarada","skill1": "Flower Trick, Night Slash","skill2": "Double Team, Trailblaze"},
   {"name": "mimikyu","skill1": "Play Rough, Shadow Claw","skill2": "Shadow Sneak, Trick Room"},
   {"name": "blaziken","skill1": "Fire Punch, Blaze Kick","skill2": "Ember, Focus Blast"},
-  {"name": "mmega-mewtwo-y","skill1": "Future Sight, Psystrike","skill2": "Recover, Teleport"},
+  {"name": "mega-mewtwo-y","skill1": "Future Sight, Psystrike","skill2": "Recover, Teleport"},
   {"name": "mega-mewtwo-x","skill1": "Future Sight, Psystrike","skill2": "Recover, Teleport"},
   {"name": "inteleon","skill1": "Fell Stinger, Acrobatics","skill2": "Snipe Shot, Liquidation"},
   {"name": "leafeon","skill1": "Razor Leaf, Solar Blade","skill2": "Aerial Ace, Leaf Blade"},

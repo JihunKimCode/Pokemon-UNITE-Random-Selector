@@ -218,6 +218,8 @@ function getPokemonNameKey(name) {
   // explicit exceptions
   if (lower === "ho-oh") return "ho-oh";
   if (lower === "mr-mime") return "mr.mime";
+  if (lower === "mega-mewtwo-x") return "mewtwox"
+  if (lower === "mega-mewtwo-y") return "mewtwoy"
 
   // default behavior
   return lower.replace(/[- ]/g, '');
