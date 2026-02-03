@@ -28,57 +28,9 @@ const volumeLabel = document.getElementById("volume-label");
 /* Preload all images and store in cache */
 const imageCache = {};  // { 'charName': { roster: Image, stat: Image, cry: Audio } }
 
-const POKEAPI_NAME_MAP = {
-  // UNITE → PokéAPI
-  'mega-mewtwo-x': 'mewtwo-mega-x',
-  'mega-mewtwo-y': 'mewtwo-mega-y',
-  'mega-lucario': 'lucario-mega',
-  'mega-charizard-x': 'charizard-mega-x',
-  'mega-charizard-y': 'charizard-mega-y',
-  'mega-gyarados': 'gyarados-mega',
-  'alolan-ninetales': 'ninetales-alola',
-  'aegislash': 'aegislash-blade',
-  'urshifu': 'urshifu-rapid-strike',
-  'mimikyu': 'mimikyu-disguised',
-  'galarian-rapidash': 'rapidash-galar',
-  'alolan-raichu': 'raichu-alola',
-};
-
 function getPokeApiName(uniteName) {
   return POKEAPI_NAME_MAP[uniteName] || uniteName;
 }
-
-/* Exceptions to default image sources */
-const IMAGE_SRC_EXCEPTIONS = {
-  "mega-mewtwo-x": {
-    roster: "https://unite.pokemon.com/images/pokemon/mewtwo/roster/roster-mewtwo.png",
-    stat:   "https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png"
-  },
-  "mega-mewtwo-y": {
-    roster: "https://unite.pokemon.com/images/pokemon/mewtwo/roster/roster-mewtwo.png",
-    stat:   "https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png"
-  },
-  "mega-lucario": {
-    roster: "https://i.namu.wiki/i/7LJZpK8lD95WlZw_GyjNNmS8-S2bRbYoXhDUzHmwXBVE2zxe8oPIuVmgJkbwz5302Zn8Le-qPW5Niqzz5U1TNrBMmZTRyahTG47XR6lg7g6Vllq7oMd1JbnJggCHP5FwPc27PjBunkQkNDaBboYaMg.webp",
-    stat:   "https://i.namu.wiki/i/8p9qf1Pp-7XZUFli5qOifmq6yAPEBzhsx6NvOgWa-6W2shb7LYq50G4fI7YMl91mhTtQIGF9aTVl-JTtrewcWqab_ZaJNKTI3PGvaQ3UWUKS6AglMS6hHn-rM1Yd77ro2l9McRm8NlfdA4RJAempjQ.webp"
-  },
-  "mega-charizard-x": {
-    roster: "https://i.namu.wiki/i/kedfzbsGNFxfyC1Dv2YZZsvczCq0hAlVckkp90jzKH7Okt3B0WmuL4erxnQNWBbZQzqgxirym9HQN0gWWrDiSd7L4w0f2s554-r5-rx2nICuvfM50fx9Nq7AfUHvltrQ4aQBGWq43FVrTHfWSZVrvg.webp",
-    stat:   "https://i.namu.wiki/i/Wh2v7D2xRFSMUubs35KkCut3K0c2TN7VC5BVt_SqQIpCmBmH8GQdPKaHXJHVPlyOIEb2YjSC5tFxsfkTTOAm5G3avdYw7AKUu1HQoezIILK-gV78Vf47BGehgmG8NvqIiQ9Jp0zWFl4aFWLT6DRN-A.webp"
-  },
-  "mega-charizard-y": {
-    roster: "https://i.namu.wiki/i/zoAD7fSkaY9YtiL0lr13lmsTnwg1PME61-t8cqSE9M1PZXC-y59zsSkbA0TaW2Eg02kTwktRP-d9pf0stp5FTgpjJPnOUKkLjYSjKpbr6COj3qWu9Uo9S3IC5agJ4jxc0_IusDrJgA0DlKLHHiVHPg.webp",
-    stat:   "https://i.namu.wiki/i/zzaWcLc0Fbu70YSXROciOGhlgOEEPUWBEUNwLRBsJ3QL0itqBnXrszrKUo_b4EBM37Es2NGMIGloXBa_ib9xPy7zwuQsDP3pFcoCCvPWYJQW-ZN8NimwlyKxZkQVJ-Ft6L1QELE63MjxIT7rwmC-LA.webp"
-  },
-  "mega-gyarados": {
-    roster: "https://i.namu.wiki/i/c5W1VXoACy84jpdBsAXmBG5iHzCiVT3sh9IgBzFDb46RuDi4fQ6-NZ7T1ztxwY6h-ttoM6vNa8Xg2WjmJWk2lI5N08Qf_hb15YP0EE7lEXT6xoDBDrYuEoGljYyxWp1HT-5VrbTUZqkXsfRSlgCpMQ.webp",
-    stat:   "https://i.namu.wiki/i/nSs8iRkyPj2YBgM_4M09PDqhBDQCiWXWjqLslE9gwDbV4YHlSGOssG8F7NbqUqDv86HcMwSP-7xZxknU-5tBytWAC9epjfmNRs1Y-0uY9Y2GPtPwBedv-aNM1mu_EyHmvvrPs5CrCp94Lws6vkPJnA.webp"
-  },
-  "meowth": { // Check official webpage later
-    roster: "https://i.namu.wiki/i/Mop3taxD8LvpK8F_Tgw5HhFK5rs1ddfekcaPxwtYdlGi_CJnoQCfxrVYVeRp_Y0x85g69Q19NfaD1da3fOqdv48GaOZbJcEwiyYyy5JM9WhbFtE5saUphFr9syfqJRzP15EcI7C1vKoZZoP5q4MPiA.webp",  // update this later
-    stat: "https://i.namu.wiki/i/Mop3taxD8LvpK8F_Tgw5HhFK5rs1ddfekcaPxwtYdlGi_CJnoQCfxrVYVeRp_Y0x85g69Q19NfaD1da3fOqdv48GaOZbJcEwiyYyy5JM9WhbFtE5saUphFr9syfqJRzP15EcI7C1vKoZZoP5q4MPiA.webp"
-  }
-};
 
 function getImageSrc(pokemonName, type, fallback) {
   return IMAGE_SRC_EXCEPTIONS[pokemonName]?.[type] || fallback;
@@ -254,24 +206,29 @@ function revealItemsAndSkills(finalPokemonName) {
   attachTooltip(battleItemEl, finalBattle.name);
 
   /* ===== SKILLS ===== */
-  const pokemon = skills.find(
+  const pokemon = characters.find(
     p => p.name.toLowerCase() === finalPokemonName.toLowerCase()
   );
   if (!pokemon) return;
   const pokemonNameKey = getPokemonNameKey(finalPokemonName);
 
+  // Split skill pools
   const skill1Pool = pokemon.skill1.split(',').map(s => s.trim());
   const skill2Pool = pokemon.skill2.split(',').map(s => s.trim());
 
+  // Random pick
   const pickedSkill1 = pickRandomSkills(skill1Pool);
   const pickedSkill2 = pickRandomSkills(skill2Pool);
 
+  // DOM
   const skill1El = document.querySelector('.skill1');
   const skill2El = document.querySelector('.skill2');
 
+  // Image keys for serebii.net
   const skill1Key = pickedSkill1.toLowerCase().replace(/[ ]/g, '');
   const skill2Key = pickedSkill2.toLowerCase().replace(/[ ]/g, '');
 
+  // Apply
   skill1El.src = `https://www.serebii.net/pokemonunite/moves/${pokemonNameKey}${skill1Key}.png`;
   skill1El.alt = pickedSkill1;
   attachTooltip(skill1El, pickedSkill1);
