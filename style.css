@@ -79,8 +79,10 @@ body {
 
 #stage-img {
   position: relative;
-  width: auto;
   height: 270px;
+  width: auto;
+  min-height: 270px;
+  object-fit: contain;
   z-index: 1;
 }
 
@@ -328,13 +330,27 @@ body {
   transition: transform 0.2s ease;
 }
 
-.character-image img.crop {
-  object-fit: cover;
-  object-position: center 0%;
-}
-
 .character:hover .character-image img {
   transform: scale(1.1);
+}
+
+/* Exception cases */
+.character-image img.mega {
+  transform: scale(1.7);
+  object-position: left;
+}
+
+.character-image img.sirfetchd{
+  object-position: right -25px;
+}
+
+.character-image img.lucario{
+  object-position: left 20px;
+}
+
+/* Zoomed + hover (override) */
+.character:hover .character-image img.mega {
+  transform: scale(1.87);
 }
 
 /* Name section */

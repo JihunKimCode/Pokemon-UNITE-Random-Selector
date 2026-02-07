@@ -112,6 +112,19 @@ function processPokemonName(name){
   return lower.toUpperCase().replace(/[- ]/g, ' ');
 }
 
+/*Adjust class for exception images*/
+function getExceptionClasses(name) {
+  const map = {
+    "mega-lucario": "mega lucario",
+    "mega-charizard-x": "mega",
+    "mega-charizard-y": "mega",
+    "mega-gyarados": "mega",
+    "sirfetch'd": "mega sirfetchd"
+  };
+
+  return map[name] || "";
+}
+
 /*  RENDER GRID  */
 function renderGrid() {
   grid.innerHTML = '';
@@ -134,7 +147,11 @@ function renderGrid() {
 
     div.innerHTML = `
       <div class="character-image">
-          <img src="${rosterSrc}" alt="${c.name}">
+        <img 
+          src="${rosterSrc}" 
+          alt="${c.name}"
+          class="${getExceptionClasses(c.name)}"
+        >
       </div>
       <div class="character-name">${processPokemonName(c.name)}</div>
     `;
