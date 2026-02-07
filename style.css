@@ -101,7 +101,7 @@ body {
   gap: 10px;
 }
 
-.held-items {
+.held-items, .battle-items {
   display: block;
   background-color: #fff;
   border: 1px solid #351061;
@@ -116,7 +116,12 @@ body {
   object-fit: contain;
 }
 
-.battle-items, .skill1, .skill2{
+.battle-items{
+  border: none;
+  background-color: #000;
+}
+
+.skill1, .skill2{
   width: 40px;
   height: 40px;
   object-fit: contain;
