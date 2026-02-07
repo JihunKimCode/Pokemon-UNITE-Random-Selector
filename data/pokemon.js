@@ -38,15 +38,15 @@ const IMAGE_SRC_EXCEPTIONS = {
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/12/19/inline/01.png"
   },
   "mega-gyarados": {
-    roster: "https://d275t8dp8rxb42.cloudfront.net/pokemon/portrait/Mega-Gyarados.png",
-    stat:   "https://d275t8dp8rxb42.cloudfront.net/pokemon/portrait/Mega-Gyarados.png"
+    roster: "https://www.serebii.net/pokemonunite/pokemon/130-m.png",
+    stat:   "https://www.serebii.net/pokemonunite/pokemon/130-m.png"
   },
   "meowth": { // Check official webpage later
     roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/01/09/inline/01.png",
     stat: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/01/09/inline/01.png"
   },
   "sirfetch'd" : { // Check official webpage later
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png",  // update this later
+    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png",
     stat: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png"
   }
 };
