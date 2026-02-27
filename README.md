@@ -26,7 +26,7 @@ A simple tool to randomly choose a Pokémon from Pokémon UNITE.
    - Click **Load State** to restore the saved Pokémon selection.
 
 ## Important
-* All images and data are sourced from the [official Pokémon UNITE website](https://unite.pokemon.com/en-us/) and publicly available information compiled on [The Official Pokémon Website](https://www.pokemon.com/us) and [Serebii.net](https://www.serebii.net/).
+* All images and data are sourced from the [official Pokémon UNITE website](https://unite.pokemon.com/en-us/), [The Official Pokémon Website](https://www.pokemon.com/us), and publicly available information compiled on [Serebii.net](https://www.serebii.net/) and [unite-db](https://unite-db.com/).
 * Sounds are sourced from the [PokéAPI](https://pokeapi.co/).  
 * Pokémon and all related assets are © their respective owners (Nintendo / Creatures Inc. / GAME FREAK / Tencent). All rights reserved.  
 * This is an unofficial fan project and is not affiliated with, endorsed by, or associated with any of the companies listed above.

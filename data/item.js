@@ -42,6 +42,7 @@ const HELD_ITEMS = [
   { name: 'Choice Scarf', src:'https://www.serebii.net/pokemonunite/items/choicescarf.png' },
   { name: 'Big Root', src:'https://www.serebii.net/pokemonunite/items/bigroot.png' },
   { name: 'Tenacity Belt', src:'https://www.serebii.net/pokemonunite/items/tenacitybelt.png' },
+  { name: 'Vanguard Bell', src:'https://d275t8dp8rxb42.cloudfront.net/items/held/Vanguard+Bell.png' },  // Check serebii.net later
 ];
 
 const BATTLE_ITEMS = [
