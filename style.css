@@ -350,6 +350,10 @@ body {
   object-position: 5px 5px;
 }
 
+.character-image:hover img.zapdos{
+  transform: scale(1.65);
+}
+
 .character-image img.sirfetchd{
   object-position: right -25px;
 }
