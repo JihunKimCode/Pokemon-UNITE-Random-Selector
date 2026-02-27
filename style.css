@@ -345,6 +345,11 @@ body {
   object-position: left;
 }
 
+.character-image img.zapdos{
+  transform: scale(1.5);
+  object-position: 5px 5px;
+}
+
 .character-image img.sirfetchd{
   object-position: right -25px;
 }

@@ -48,10 +48,23 @@ const IMAGE_SRC_EXCEPTIONS = {
   "sirfetch'd" : { // Check official webpage later
     roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png",
     stat: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png"
+  },
+  "zapdos" : { // Check official webpage later
+    roster: "https://www.serebii.net/pokemonunite/pokemon/145.png",
+    stat:   "https://www.serebii.net/pokemonunite/pokemon/145.png"
   }
 };
 
 const characters = [
+      {
+        "name": "zapdos",
+        "type": "attacker",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Thunderbolt",
+        "skill2": "Zap Cannon"
+      },
       {
         "name": "sirfetch'd",
         "type": "all-rounder",
