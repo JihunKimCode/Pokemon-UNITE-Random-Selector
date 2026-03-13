@@ -52,10 +52,23 @@ const IMAGE_SRC_EXCEPTIONS = {
   "zapdos" : { // Check official webpage later
     roster: "https://www.serebii.net/pokemonunite/pokemon/145.png",
     stat:   "https://www.serebii.net/pokemonunite/pokemon/145.png"
+  },
+  "moltres" : {
+    roster: "https://www.serebii.net/pokemonunite/pokemon/146.png",
+    stat:   "https://www.serebii.net/pokemonunite/pokemon/146.png"
   }
 };
 
 const characters = [
+      {
+        "name": "moltres",
+        "type": "all-rounder",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Sky Attack",
+        "skill2": "Heat Wave"
+      },
       {
         "name": "zapdos",
         "type": "attacker",

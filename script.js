@@ -120,7 +120,8 @@ function getExceptionClasses(name) {
     "mega-charizard-y": "mega",
     "mega-gyarados": "mega",
     "sirfetch'd": "mega sirfetchd",
-    "zapdos": "zapdos"
+    "zapdos": "zapdos",
+    "moltres": "moltres",
   };
 
   return map[name] || "";

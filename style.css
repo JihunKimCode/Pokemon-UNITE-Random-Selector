@@ -354,6 +354,15 @@ body {
   transform: scale(1.65);
 }
 
+.character-image img.moltres{
+  transform: scale(2.5);
+  object-position: -15px -25px;
+}
+
+.character-image:hover img.moltres{
+  transform: scale(2.75);
+}
+
 .character-image img.sirfetchd{
   object-position: right -25px;
 }
