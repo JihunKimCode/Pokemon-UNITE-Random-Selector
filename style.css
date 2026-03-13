@@ -325,6 +325,7 @@ body {
   overflow: hidden;
 }
 
+/* Base image styling */
 .character-image img {
   width: 100%;
   height: auto;
@@ -332,48 +333,40 @@ body {
   object-fit: cover;
   object-position: top;
   display: block;
+
+  --scale: 1;
+
+  transform: scale(var(--scale));
   transition: transform 0.2s ease;
 }
 
+/* Hover zoom (always 1.1x) */
 .character:hover .character-image img {
-  transform: scale(1.1);
+  transform: scale(calc(var(--scale) * 1.1));
 }
 
-/* Exception cases */
+/* ---- Exceptions ---- */
 .character-image img.mega {
-  transform: scale(1.7);
+  --scale: 1.7;
   object-position: left;
 }
 
-.character-image img.zapdos{
-  transform: scale(1.5);
-  object-position: 5px 5px;
-}
-
-.character-image:hover img.zapdos{
-  transform: scale(1.65);
-}
-
-.character-image img.moltres{
-  transform: scale(2.5);
-  object-position: -15px -25px;
-}
-
-.character-image:hover img.moltres{
-  transform: scale(2.75);
-}
-
-.character-image img.sirfetchd{
-  object-position: right -25px;
-}
-
-.character-image img.lucario{
+.character-image img.lucario {
   object-position: left 20px;
 }
 
-/* Zoomed + hover (override) */
-.character:hover .character-image img.mega {
-  transform: scale(1.87);
+.character-image img.sirfetchd {
+  object-position: right -25px;
+}
+
+.character-image img.zapdos {
+  --scale: 1.5;
+  object-position: 5px 5px;
+}
+
+.character-image img.moltres {
+  --scale: 2.5;
+  object-position: -15px -25px;
 }
 
 /* Name section */
