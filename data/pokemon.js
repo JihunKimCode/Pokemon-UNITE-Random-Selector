@@ -54,8 +54,8 @@ const IMAGE_SRC_EXCEPTIONS = {
     stat:   "https://www.serebii.net/pokemonunite/pokemon/145.png"
   },
   "moltres" : {
-    roster: "https://www.serebii.net/pokemonunite/pokemon/146.png",
-    stat:   "https://www.serebii.net/pokemonunite/pokemon/146.png"
+    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/03/13/inline/01.png",
+    stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/03/13/inline/01.png"
   }
 };
 
