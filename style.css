@@ -369,6 +369,11 @@ body {
   object-position: -12px -21px;
 }
 
+.character-image img.articuno {
+  --scale: 2.4;
+  object-position: -5px -19px;
+}
+
 /* Name section */
 .character-name {
   background: #19072d;

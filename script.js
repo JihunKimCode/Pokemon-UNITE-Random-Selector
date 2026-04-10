@@ -122,6 +122,7 @@ function getExceptionClasses(name) {
     "sirfetch'd": "mega sirfetchd",
     "zapdos": "zapdos",
     "moltres": "moltres",
+    "articuno": "articuno",
   };
 
   return map[name] || "";

@@ -56,10 +56,23 @@ const IMAGE_SRC_EXCEPTIONS = {
   "moltres" : {
     roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/03/13/inline/01.png",
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/03/13/inline/01.png"
+  },
+  "articuno" : {
+    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/04/03/inline/01.png",
+    stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/04/03/inline/01.png"
   }
 };
 
 const characters = [
+    {
+        "name": "articuno",
+        "type": "defender",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Blizzard",
+        "skill2": "Ice Beam"
+      },
       {
         "name": "moltres",
         "type": "all-rounder",
