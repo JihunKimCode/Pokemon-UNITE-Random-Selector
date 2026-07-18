@@ -114,18 +114,7 @@ function processPokemonName(name){
 
 /*Adjust class for exception images*/
 function getExceptionClasses(name) {
-  const map = {
-    "mega-lucario": "mega lucario",
-    "mega-charizard-x": "mega",
-    "mega-charizard-y": "mega",
-    "mega-gyarados": "mega gyarados",
-    "sirfetch'd": "mega sirfetchd",
-    "zapdos": "zapdos",
-    "moltres": "moltres",
-    "articuno": "articuno",
-  };
-
-  return map[name] || "";
+  return IMAGE_SRC_EXCEPTIONS[name]?.class ?? "";
 }
 
 /*  RENDER GRID  */

@@ -26,45 +26,151 @@ const IMAGE_SRC_EXCEPTIONS = {
     stat:   "https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png"
   },
   "mega-lucario": {
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/09/29/inline/01.png",
+    class: "lucario",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Mega-Lucario.png",
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/09/29/inline/01.png"
   },
   "mega-charizard-x": {
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/10/24/inline/01.png",
+    class:"charizardx",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Mega-Charizard-X.png",
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/10/24/inline/01.png"
   },
   "mega-charizard-y": {
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/12/19/inline/01.png",
+    class: "charizardy",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Mega-Charizard-Y.png",
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/12/19/inline/01.png"
   },
-  // TODO: Update with https://www.pokemonunite.jp/wp-content/uploads/Mega-Gyarados.png
   "mega-gyarados": {
+    class: "gyarados",
     roster: "https://www.pokemonunite.jp/wp-content/uploads/Mega-Gyarados.png",
     stat:   "https://www.pokemonunite.jp/wp-content/uploads/Mega-Gyarados.png"
   },
-  "meowth": { // Check official webpage later
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/01/09/inline/01.png",
+  "meowth": {
+    class: "meowth",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Meowth.png",
     stat: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/01/09/inline/01.png"
   },
-  "sirfetch'd" : { // Check official webpage later
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png",
+  "sirfetch'd" : {
+    class: "sirfetchd",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Sirfetchd-1.png",
     stat: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png"
   },
-  "zapdos" : { // Check official webpage later
+  "zapdos" : {
+    class: "zapdos",
     roster: "https://www.pokemonunite.jp/wp-content/uploads/Zapdos.png",
     stat:   "https://www.pokemonunite.jp/wp-content/uploads/Zapdos.png"
   },
   "moltres" : {
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/03/13/inline/01.png",
+    class: "moltres",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/moltres.png",
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/03/13/inline/01.png"
   },
   "articuno" : {
-    roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/04/03/inline/01.png",
+    class: "articuno",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/articuno.png",
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/04/03/inline/01.png"
-  }
+  },
+  "typhlosion" : {
+    class: "typhlosion",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Typhlosion.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Typhlosion.png"
+  },
+  "feraligatr" : {
+    class: "feraligatr",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Feraligatr.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Feraligatr.png"
+  },  
+  "meganium" : {
+    class: "meganium",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Meganium.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Meganium.png"
+  },  
+  "skeledirge" : {
+    class: "skeledirge",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Skeledirge.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Skeledirge.png"
+  },  
+  "quaquaval" : {
+    class: "quaquaval",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Quaquaval.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Quaquaval.png"
+  },  
+  "yveltal" : {
+    class: "yveltal",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Yveltal.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Yveltal.png"
+  },  
+  "palkia" : {
+    class: "palkia",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Palkia.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Palkia.png"
+  },
 };
 
 const characters = [
+    {
+        "name": "palkia",
+        "type": "all-rounder",
+        "range": "melee",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Aura Sphere",
+        "skill2": "Dragon Claw"
+    },
+    {
+        "name": "yveltal",
+        "type": "attacker",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Oblivion Wing",
+        "skill2": "Dark Pulse"
+    },
+    {
+        "name": "quaquaval",
+        "type": "all-rounder",
+        "range": "melee",
+        "attackType": "physical",
+        "enabled": true,
+        "skill1": "Low Sweep",
+        "skill2": "Liquidation"
+    },
+    {
+        "name": "skeledirge",
+        "type": "attacker",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Hyper Voice",
+        "skill2": "Snarl"
+    },
+    {
+        "name": "meganium",
+        "type": "supporter",
+        "range": "melee",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Grass Knot",
+        "skill2": "Petal Blizzard"
+    },
+    {
+        "name": "feraligatr",
+        "type": "all-rounder",
+        "range": "melee",
+        "attackType": "physical",
+        "enabled": true,
+        "skill1": "Crunch",
+        "skill2": "Waterfall"
+    },
+    {
+        "name": "typhlosion",
+        "type": "attacker",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Eruption",
+        "skill2": "Flame Wheel"
+    },
     {
         "name": "articuno",
         "type": "defender",
