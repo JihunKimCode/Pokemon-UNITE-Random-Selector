@@ -351,6 +351,10 @@ body {
   object-position: left;
 }
 
+.character-image img.gyarados {
+    --scale: 1.5;
+}
+
 .character-image img.lucario {
   object-position: left 20px;
 }
@@ -360,8 +364,8 @@ body {
 }
 
 .character-image img.zapdos {
-  --scale: 1.5;
-  object-position: 5px 5px;
+  --scale: 1.8;
+  object-position: 4px 2px;
 }
 
 .character-image img.moltres {

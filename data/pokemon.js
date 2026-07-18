@@ -37,9 +37,10 @@ const IMAGE_SRC_EXCEPTIONS = {
     roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/12/19/inline/01.png",
     stat:   "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2025/12/19/inline/01.png"
   },
+  // TODO: Update with https://www.pokemonunite.jp/wp-content/uploads/Mega-Gyarados.png
   "mega-gyarados": {
-    roster: "https://www.serebii.net/pokemonunite/pokemon/130-m.png",
-    stat:   "https://www.serebii.net/pokemonunite/pokemon/130-m.png"
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Mega-Gyarados.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Mega-Gyarados.png"
   },
   "meowth": { // Check official webpage later
     roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/01/09/inline/01.png",
@@ -50,8 +51,8 @@ const IMAGE_SRC_EXCEPTIONS = {
     stat: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/02/06/inline/01.png"
   },
   "zapdos" : { // Check official webpage later
-    roster: "https://www.serebii.net/pokemonunite/pokemon/145.png",
-    stat:   "https://www.serebii.net/pokemonunite/pokemon/145.png"
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Zapdos.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Zapdos.png"
   },
   "moltres" : {
     roster: "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-unite/2026/03/13/inline/01.png",

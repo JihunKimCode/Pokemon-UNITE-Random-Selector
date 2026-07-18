@@ -118,7 +118,7 @@ function getExceptionClasses(name) {
     "mega-lucario": "mega lucario",
     "mega-charizard-x": "mega",
     "mega-charizard-y": "mega",
-    "mega-gyarados": "mega",
+    "mega-gyarados": "mega gyarados",
     "sirfetch'd": "mega sirfetchd",
     "zapdos": "zapdos",
     "moltres": "moltres",
