@@ -105,9 +105,23 @@ const IMAGE_SRC_EXCEPTIONS = {
     roster: "https://www.pokemonunite.jp/wp-content/uploads/Palkia.png",
     stat:   "https://www.pokemonunite.jp/wp-content/uploads/Palkia.png"
   },
+  "reshiram" : {
+    class: "reshiram",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Reshiram.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Reshiram.png"
+  }
 };
 
 const characters = [
+    {
+        "name": "reshiram",
+        "type": "attacker",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Dragon Dance",
+        "skill2": "Blue Flare"
+    },
     {
         "name": "palkia",
         "type": "all-rounder",

@@ -426,6 +426,11 @@ body {
   object-position: 6px 10px;
 }
 
+.character-image img.reshiram {
+  --scale: 2.1;
+  object-position: -4px 10px;
+}
+
 /* Name section */
 .character-name {
   background: #19072d;
