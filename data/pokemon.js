@@ -109,10 +109,24 @@ const IMAGE_SRC_EXCEPTIONS = {
     class: "reshiram",
     roster: "https://www.pokemonunite.jp/wp-content/uploads/Reshiram.png",
     stat:   "https://www.pokemonunite.jp/wp-content/uploads/Reshiram.png"
+  },
+  "solgaleo" : {
+    class: "solgaleo",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Solgaleo.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Solgaleo.png"
   }
 };
 
 const characters = [
+    {
+        "name": "solgaleo",
+        "type": "all-rounder",
+        "range": "ranged",
+        "attackType": "physical",
+        "enabled": true,
+        "skill1": "Iron Head",
+        "skill2": "Psyshock"
+    },
     {
         "name": "reshiram",
         "type": "attacker",

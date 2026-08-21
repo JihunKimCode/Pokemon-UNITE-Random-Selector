@@ -431,6 +431,11 @@ body {
   object-position: -4px 10px;
 }
 
+.character-image img.solgaleo {
+  --scale: 1.3;
+  object-position: -29px 11px;
+}
+
 /* Name section */
 .character-name {
   background: #19072d;
