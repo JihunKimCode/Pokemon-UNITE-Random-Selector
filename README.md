@@ -1,10 +1,11 @@
 # [Pokemon-UNITE-Random-Selector](https://jihunkimcode.github.io/Pokemon-UNITE-Random-Selector/)
+<img width="1920" height="911" alt="스크린샷 2026-08-21 083719" src="https://github.com/user-attachments/assets/02525a39-6e1f-4386-afd4-740cf791fcb2" />
 A simple tool to randomly choose a Pokémon from Pokémon UNITE.
 
-* **Random Pick Display**
-   - The selected Pokémon will appear in the **stage section** with its image.
-   - **Held items**, **battle item**, and **skills** will appear below the Pokémon image.
-   - The **spotlight** color changes according to the Pokémon’s role/type.
+## Random Pick Display
+  - The selected Pokémon will appear in the **stage section** with its image.
+  - **Held items**, **battle item**, and **skills** will appear below the Pokémon image.
+  - The **spotlight** color changes according to the Pokémon’s role/type.
 
 ## How to Use
 1. **Pick a Pokémon**
