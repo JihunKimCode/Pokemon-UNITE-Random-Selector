@@ -13,6 +13,7 @@ const POKEAPI_NAME_MAP = {
   'galarian-rapidash': 'rapidash-galar',
   'alolan-raichu': 'raichu-alola',
   "sirfetch'd": 'sirfetchd',
+  "morpeko": 'morpeko-full-belly',
 };
 
 /* Exceptions to default image sources */
@@ -114,10 +115,24 @@ const IMAGE_SRC_EXCEPTIONS = {
     class: "solgaleo",
     roster: "https://www.pokemonunite.jp/wp-content/uploads/Solgaleo.png",
     stat:   "https://www.pokemonunite.jp/wp-content/uploads/Solgaleo.png"
+  },
+  "morpeko" : {
+    class: "morpeko",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Morpeko.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Morpeko.png"
   }
 };
 
 const characters = [
+    {
+        "name": "morpeko",
+        "type": "speedster",
+        "range": "melee",
+        "attackType": "physical",
+        "enabled": true,
+        "skill1": "Spark",
+        "skill2": "Assurance"
+    },
     {
         "name": "solgaleo",
         "type": "all-rounder",

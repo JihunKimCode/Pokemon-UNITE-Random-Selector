@@ -436,6 +436,11 @@ body {
   object-position: -29px 11px;
 }
 
+.character-image img.morpeko {
+  --scale: 1.1;
+  object-position: -6px 6px;
+}
+
 /* Name section */
 .character-name {
   background: #19072d;
