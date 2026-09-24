@@ -14,6 +14,7 @@ const POKEAPI_NAME_MAP = {
   'alolan-raichu': 'raichu-alola',
   "sirfetch'd": 'sirfetchd',
   "morpeko": 'morpeko-full-belly',
+  "toxtricity": 'toxtricity-amped'
 };
 
 /* Exceptions to default image sources */
@@ -120,10 +121,24 @@ const IMAGE_SRC_EXCEPTIONS = {
     class: "morpeko",
     roster: "https://www.pokemonunite.jp/wp-content/uploads/Morpeko.png",
     stat:   "https://www.pokemonunite.jp/wp-content/uploads/Morpeko.png"
+  },
+  "toxtricity" : {
+    class: "toxtricity",
+    roster: "https://www.pokemonunite.jp/wp-content/uploads/Toxtricity.png",
+    stat:   "https://www.pokemonunite.jp/wp-content/uploads/Toxtricity.png"
   }
 };
 
 const characters = [
+    {
+        "name": "toxtricity",
+        "type": "attacker",
+        "range": "ranged",
+        "attackType": "special",
+        "enabled": true,
+        "skill1": "Shift Gear",
+        "skill2": "Overdrive"
+    },
     {
         "name": "morpeko",
         "type": "speedster",

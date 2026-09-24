@@ -441,6 +441,11 @@ body {
   object-position: -6px 6px;
 }
 
+.character-image img.toxtricity {
+  --scale: 1.7;
+  object-position: -11px 25px;
+}
+
 /* Name section */
 .character-name {
   background: #19072d;
